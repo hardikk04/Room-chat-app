@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex h-screen">
+      <div
+        class="middleware fixed z-20 top-0 left-0 bg-gray-100 flex items-center justify-center h-screen w-full"
+      >
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+          <h1 class="text-2xl font-bold mb-4 text-center">
+            Welcome to Chat App
+          </h1>
+
+          <div>
+            <label
+              for="username"
+              class="block text-sm font-medium text-gray-700"
+              >Enter your name</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              class="mt-1 p-2 border outline-none border-gray-300 rounded w-full"
+            />
+          </div>
+          <input
+            type="submit"
+            class="joinForm w-full mt-2 py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700"
+          />
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="w-1/4 bg-white border-r border-gray-200 flex flex-col">
+        <div class="p-4 border-b border-gray-200">
+          <h1 class="text-lg font-bold">Rooms</h1>
+        </div>
+        <ul class="flex-1 overflow-y-auto">
+          <!-- Room List Items -->
+          <li class="p-4 topics hover:bg-gray-100 cursor-pointer">
+            Philosophy
+          </li>
+          <li class="p-4 topics hover:bg-gray-100 cursor-pointer">
+            Psychology
+          </li>
+          <li class="p-4 topics hover:bg-gray-100 cursor-pointer">
+            Mathematics
+          </li>
+        </ul>
+      </div>
+
+      <!-- Chat Area -->
+      <div class="flex-1 flex flex-col relative">
+        <div
+          class="join-room absolute top-0 left-0 h-full w-full z-10 flex justify-center items-center"
+        >
+          <ul
+            class="flex-1 overflow-y-auto w-fit flex justify-center items-center flex-col"
+          >
+            <h1 class="text-2xl font-[600] mb-6">
+              Join a room by clicking on a room name to start convo.
+            </h1>
+          </ul>
+        </div>
+        <div
+          class="p-4 border-b border-gray-200 flex justify-between items-center"
+        >
+          <h2 class="text-lg room-name font-bold">&nbsp;</h2>
+          <h2 class="name text-lg room-name font-bold">&nbsp;</h2>
+        </div>
+        <div id="messages" class="flex-1 p-4 overflow-y-auto relative">
+          <!-- Messages will be appended here -->
+        </div>
+        <div class="p-4 input-box border-t border-gray-200 hidden">
+          <div id="messageForm" class="flex">
+            <textarea
+              id="messageInput"
+              class="flex-1 p-2 border rounded-l border-gray-200 resize-none outline-none"
+              placeholder="Type a message..."
+            ></textarea>
+            <button
+              class="p-2 outline-none send bg-blue-500 text-white rounded-r"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
